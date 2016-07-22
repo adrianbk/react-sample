@@ -8,7 +8,8 @@ const parts = require('./libs/parts');
 
 const PATHS = {
   src: path.join(__dirname, 'src'),
-  build: path.join(__dirname, 'build')
+  build: path.join(__dirname, 'build'),
+  sass: path.join(__dirname, 'src', 'view', 'style'),
 };
 
 
@@ -38,6 +39,7 @@ var config;
 switch (process.env.npm_lifecycle_event) {
   case 'build':
     config = merge(common,
+      parts.setupStyling(PATHS.sass),
       parts.setupJsx(PATHS.src),
       {
         devtool: 'source-map'
@@ -47,6 +49,7 @@ switch (process.env.npm_lifecycle_event) {
   default:
     config = merge(
       common,
+      parts.setupStyling(PATHS.sass),
       parts.setupJsx(PATHS.src),
       parts.devServer({
         host: process.env.HOST,

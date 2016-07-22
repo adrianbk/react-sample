@@ -57,3 +57,18 @@ exports.setupJsx = function (paths) {
     }
   };
 }
+
+exports.setupStyling = function (paths) {
+  return {
+    module: {
+      loaders: [
+        {
+          test: /\.scss$/,
+          loaders: ['style', 'css', 'sass'],
+          include: paths,
+          exclude: [/node_modules/]
+        }
+      ]
+    }
+  };
+}

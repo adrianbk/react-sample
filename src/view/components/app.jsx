@@ -1,6 +1,7 @@
 import React from "react";
 import Notes from "./Notes";
 import uuid from "uuid";
+require('../style/sass/App.scss');
 
 export class App extends React.Component {
 
@@ -25,7 +26,7 @@ export class App extends React.Component {
         const {notes} = this.state;
 
         return <div>
-            <button onClick={this.addNote}>+</button>
+            <button onClick={this.addNote} className="add-note">+</button>
             <Notes
                 notes={notes}
                 onNoteClick={this.activateNoteEdit}
