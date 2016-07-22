@@ -1,9 +1,11 @@
 import React from "react";
 import Notes from "./Notes";
 import uuid from "uuid";
+import connect from '../libs/connect/connect'
+
 require('../style/sass/App.scss');
 
-export class App extends React.Component {
+class App extends React.Component {
 
     constructor(props) {
         super(props);
@@ -76,3 +78,8 @@ export class App extends React.Component {
         });
     }
 }
+
+
+export default connect(() => ({
+    test: 'test'
+}))(App)
