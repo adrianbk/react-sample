@@ -4,4 +4,7 @@ var ReactDOM = require('react-dom');
 
 import {App} from "./components/App";
 
-ReactDOM.render(<App/>, document.getElementById('app'));
+import Provider from './Provider';
+
+
+ReactDOM.render(<Provider><App /></Provider>, document.getElementById('app'));
